@@ -1,0 +1,73 @@
+mwmon
+Heavy_work=10 Light_work=0 nbarriers=1000000
+Work_time: 27.888770     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=1 nbarriers=1000000
+Work_time: 29.875868     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=2 nbarriers=1000000
+Work_time: 31.849715     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=3 nbarriers=1000000
+Work_time: 33.813737     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=4 nbarriers=1000000
+Work_time: 35.786962     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=5 nbarriers=1000000
+Work_time: 37.778259     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=6 nbarriers=1000000
+Work_time: 39.751531     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=7 nbarriers=1000000
+Work_time: 41.755838     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=8 nbarriers=1000000
+Work_time: 43.721198     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=9 nbarriers=1000000
+Work_time: 45.725931     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=10 nbarriers=1000000
+Work_time: 47.739717     Wakeup_tics: 0.000000    Call_tics: 0.000000
+
+
+pthread
+Heavy_work=10 Light_work=0 nbarriers=1000000
+Work_time: 34.219738     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=1 nbarriers=1000000
+Work_time: 35.074596     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=2 nbarriers=1000000
+Work_time: 35.824961     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=3 nbarriers=1000000
+Work_time: 37.620813     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=4 nbarriers=1000000
+Work_time: 40.023631     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=5 nbarriers=1000000
+Work_time: 41.962831     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=6 nbarriers=1000000
+Work_time: 43.849884     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=7 nbarriers=1000000
+Work_time: 45.520189     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=8 nbarriers=1000000
+Work_time: 47.643340     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=9 nbarriers=1000000
+Work_time: 50.517602     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=10 nbarriers=1000000
+Work_time: 52.078706     Wakeup_tics: 0.000000    Call_tics: 0.000000
+
+
+spinpause
+Heavy_work=10 Light_work=0 nbarriers=1000000
+Work_time: 45.158791     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=1 nbarriers=1000000
+Work_time: 45.398292     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=2 nbarriers=1000000
+Work_time: 45.587760     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=3 nbarriers=1000000
+Work_time: 45.860068     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=4 nbarriers=1000000
+Work_time: 46.122099     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=5 nbarriers=1000000
+Work_time: 46.371077     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=6 nbarriers=1000000
+Work_time: 46.805881     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=7 nbarriers=1000000
+Work_time: 47.111548     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=8 nbarriers=1000000
+Work_time: 47.440269     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=9 nbarriers=1000000
+Work_time: 47.476763     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=10 nbarriers=1000000
+Work_time: 48.713339     Wakeup_tics: 0.000000    Call_tics: 0.000000

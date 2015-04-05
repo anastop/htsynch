@@ -1,0 +1,2 @@
+gcc -o thread_test cpu.c cpu_control_syscalls.c spin.c thread_test_kmon_unot.c -DCPU_XEON -DKERNEL_2_6_24_2 -DCPU_BITS=64 -DPAUSE -D_GNU_SOURCE -lpthread -Wall -O2
+gcc -o thread_test_2regions cpu.c cpu_control_syscalls.c spin.c thread_test_kmon_unot_2regions.c -DCPU_XEON -DKERNEL_2_6_24_2 -DCPU_BITS=64 -DPAUSE -D_GNU_SOURCE -lpthread -Wall -O2

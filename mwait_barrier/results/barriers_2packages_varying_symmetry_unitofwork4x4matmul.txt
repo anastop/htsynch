@@ -1,0 +1,75 @@
+Unit of work: 1 4x4 matmul
+
+mwmon
+Heavy_work=10 Light_work=0 nbarriers=1000000
+Work_time: 3.758382     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=1 nbarriers=1000000
+Work_time: 4.218595     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=2 nbarriers=1000000
+Work_time: 4.321782     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=3 nbarriers=1000000
+Work_time: 4.865386     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=4 nbarriers=1000000
+Work_time: 4.759943     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=5 nbarriers=1000000
+Work_time: 5.441440     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=6 nbarriers=1000000
+Work_time: 5.686159     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=7 nbarriers=1000000
+Work_time: 6.057758     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=8 nbarriers=1000000
+Work_time: 6.354153     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=9 nbarriers=1000000
+Work_time: 6.526836     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=10 nbarriers=1000000
+Work_time: 6.908681     Wakeup_tics: 0.000000    Call_tics: 0.000000
+
+
+pthread
+Heavy_work=10 Light_work=0 nbarriers=1000000
+Work_time: 5.913887     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=1 nbarriers=1000000
+Work_time: 7.174620     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=2 nbarriers=1000000
+Work_time: 7.597103     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=3 nbarriers=1000000
+Work_time: 7.795743     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=4 nbarriers=1000000
+Work_time: 8.114526     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=5 nbarriers=1000000
+Work_time: 7.879498     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=6 nbarriers=1000000
+Work_time: 8.521573     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=7 nbarriers=1000000
+Work_time: 9.077675     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=8 nbarriers=1000000
+Work_time: 9.793593     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=9 nbarriers=1000000
+Work_time: 10.041586     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=10 nbarriers=1000000
+Work_time: 10.290350     Wakeup_tics: 0.000000    Call_tics: 0.000000
+
+
+spinpause
+Heavy_work=10 Light_work=0 nbarriers=1000000
+Work_time: 4.215733     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=1 nbarriers=1000000
+Work_time: 4.411119     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=2 nbarriers=1000000
+Work_time: 4.474861     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=3 nbarriers=1000000
+Work_time: 4.485550     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=4 nbarriers=1000000
+Work_time: 4.611696     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=5 nbarriers=1000000
+Work_time: 4.721587     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=6 nbarriers=1000000
+Work_time: 4.898376     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=7 nbarriers=1000000
+Work_time: 4.878856     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=8 nbarriers=1000000
+Work_time: 5.298524     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=9 nbarriers=1000000
+Work_time: 5.589428     Wakeup_tics: 0.000000    Call_tics: 0.000000
+Heavy_work=10 Light_work=10 nbarriers=1000000
+Work_time: 5.653462     Wakeup_tics: 0.000000    Call_tics: 0.000000

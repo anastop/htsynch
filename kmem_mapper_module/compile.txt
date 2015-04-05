@@ -1,0 +1,1 @@
+gcc -o test_hlt test_hlt.c -DKERNEL_2_6_24_2 -DCPU_BITS=64  

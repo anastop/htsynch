@@ -1,0 +1,19 @@
+#!/bin/sh
+module="kmem_mapper"
+device="kmem_mapper"
+mode="664"
+
+# invoke insmod with all arguments we got
+# and use a pathname, as insmod doesn't look in . by default
+/sbin/insmod ./$module.ko $* || exit 1
+
+# retrieve major number
+#major=$(awk "\\$2==\"$module\" {print \\$1}" /proc/devices)
+major=201
+echo major=$major
+
+# Remove stale nodes and replace them, then give gid and perms
+
+rm -f /dev/${device}
+mknod /dev/${device} c $major 0
+chmod $mode  /dev/${device}

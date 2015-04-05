@@ -1,0 +1,490 @@
+diff -ruN linux-2.6.13.1-perfctr/arch/i386/kernel/syscall_table.S linux-2.6.13.1-perfctr-anastop/arch/i386/kernel/syscall_table.S
+--- linux-2.6.13.1-perfctr/arch/i386/kernel/syscall_table.S 2007-01-30 05:01:21.000000000 +0200
++++ linux-2.6.13.1-perfctr-anastop/arch/i386/kernel/syscall_table.S 2007-01-30 05:05:26.000000000 +0200
+@@ -294,3 +294,11 @@
+    .long sys_inotify_init
+    .long sys_inotify_add_watch
+    .long sys_inotify_rm_watch
++    .long sys_cpu_halt             
++   .long sys_mwmon_kernel_init     /* 295 */
++   .long sys_mwmon_kernel_sleep    
++   .long sys_mwmon_kernel_notify
++   .long sys_mwmon_kernel_finalize
++   .long sys_mwmon_user_sleep
++   .long sys_mwmon_mmap_sleep      /* 300 */
++   .long sys_mwmon_mmap_spin_while_greater  
+diff -ruN linux-2.6.13.1-perfctr/arch/x86_64/ia32/ia32entry.S linux-2.6.13.1-perfctr-anastop/arch/x86_64/ia32/ia32entry.S
+--- linux-2.6.13.1-perfctr/arch/x86_64/ia32/ia32entry.S 2007-01-30 05:01:44.000000000 +0200
++++ linux-2.6.13.1-perfctr-anastop/arch/x86_64/ia32/ia32entry.S 2007-01-30 05:05:54.000000000 +0200
+@@ -600,6 +600,14 @@
+    .quad sys_inotify_init
+    .quad sys_inotify_add_watch
+    .quad sys_inotify_rm_watch
++    .quad sys_cpu_halt             
++   .quad sys_mwmon_kernel_init     /* 295 */
++   .quad sys_mwmon_kernel_sleep    
++   .quad sys_mwmon_kernel_notify
++   .quad sys_mwmon_kernel_finalize
++   .quad sys_mwmon_user_sleep
++   .quad sys_mwmon_mmap_sleep      /* 300 */
++   .quad sys_mwmon_mmap_spin_while_greater  
+ ia32_syscall_end:      
+    .rept IA32_NR_syscalls-(ia32_syscall_end-ia32_sys_call_table)/8
+        .quad ni_syscall
+diff -ruN linux-2.6.13.1-perfctr/arch/x86_64/kernel/Makefile linux-2.6.13.1-perfctr-anastop/arch/x86_64/kernel/Makefile
+--- linux-2.6.13.1-perfctr/arch/x86_64/kernel/Makefile  2007-01-30 05:01:44.000000000 +0200
++++ linux-2.6.13.1-perfctr-anastop/arch/x86_64/kernel/Makefile  2007-01-30 05:05:54.000000000 +0200
+@@ -7,7 +7,7 @@
+ obj-y  := process.o semaphore.o signal.o entry.o traps.o irq.o \
+        ptrace.o time.o ioport.o ldt.o setup.o i8259.o sys_x86_64.o \
+        x8664_ksyms.o i387.o syscall.o vsyscall.o \
+-       setup64.o bootflag.o e820.o reboot.o quirks.o
++       setup64.o bootflag.o e820.o reboot.o quirks.o 
+ 
+ obj-$(CONFIG_X86_MCE)         += mce.o
+ obj-$(CONFIG_X86_MCE_INTEL)    += mce_intel.o
+diff -ruN linux-2.6.13.1-perfctr/include/asm-i386/unistd.h linux-2.6.13.1-perfctr-anastop/include/asm-i386/unistd.h
+--- linux-2.6.13.1-perfctr/include/asm-i386/unistd.h    2007-01-30 05:02:59.000000000 +0200
++++ linux-2.6.13.1-perfctr-anastop/include/asm-i386/unistd.h    2007-01-30 05:07:50.000000000 +0200
+@@ -299,8 +299,16 @@
+ #define __NR_inotify_init  291
+ #define __NR_inotify_add_watch 292
+ #define __NR_inotify_rm_watch  293
++#define __NR_cpu_halt      294
++#define __NR_mwmon_kernel_init     295
++#define __NR_mwmon_kernel_sleep 296   
++#define __NR_mwmon_kernel_notify   297
++#define __NR_mwmon_kernel_finalize     298
++#define __NR_mwmon_user_sleep  299
++#define __NR_mwmon_mmap_sleep  300     
++#define __NR_mwmon_mmap_spin_while_greater     301 
+ 
+-#define NR_syscalls 294
++#define NR_syscalls 302
+ 
+ /*
+  * user-visible error numbers are in the range -1 - -128: see
+diff -ruN linux-2.6.13.1-perfctr/include/asm-x86_64/ia32_unistd.h linux-2.6.13.1-perfctr-anastop/include/asm-x86_64/ia32_unistd.h
+--- linux-2.6.13.1-perfctr/include/asm-x86_64/ia32_unistd.h 2007-01-30 05:03:14.000000000 +0200
++++ linux-2.6.13.1-perfctr-anastop/include/asm-x86_64/ia32_unistd.h 2007-01-30 05:08:06.000000000 +0200
+@@ -299,7 +299,15 @@
+ #define __NR_ia32_inotify_init     291
+ #define __NR_ia32_inotify_add_watch    292
+ #define __NR_ia32_inotify_rm_watch 293
++#define __NR_ia32_cpu_halt         294
++#define __NR_ia32_mwmon_kernel_init    295
++#define __NR_ia32_mwmon_kernel_sleep   296   
++#define __NR_ia32_mwmon_kernel_notify  297
++#define __NR_ia32_mwmon_kernel_finalize 298
++#define __NR_ia32_mwmon_user_sleep     299
++#define __NR_ia32_mwmon_mmap_sleep     300     
++#define __NR_ia32_mwmon_mmap_spin_while_greater    301 
+ 
+-#define IA32_NR_syscalls 294   /* must be > than biggest syscall! */
++#define IA32_NR_syscalls 302   /* must be > than biggest syscall! */
+ 
+ #endif /* _ASM_X86_64_IA32_UNISTD_H_ */
+diff -ruN linux-2.6.13.1-perfctr/include/asm-x86_64/unistd.h linux-2.6.13.1-perfctr-anastop/include/asm-x86_64/unistd.h
+--- linux-2.6.13.1-perfctr/include/asm-x86_64/unistd.h  2007-01-30 05:03:15.000000000 +0200
++++ linux-2.6.13.1-perfctr-anastop/include/asm-x86_64/unistd.h  2007-01-30 05:08:06.000000000 +0200
+@@ -571,8 +571,24 @@
+ __SYSCALL(__NR_inotify_add_watch, sys_inotify_add_watch)
+ #define __NR_inotify_rm_watch  255
+ __SYSCALL(__NR_inotify_rm_watch, sys_inotify_rm_watch)
++#define __NR_cpu_halt      256
++__SYSCALL(__NR_cpu_halt, sys_cpu_halt)
++#define __NR_mwmon_kernel_init 257
++__SYSCALL(__NR_mwmon_kernel_init, sys_mwmon_kernel_init)
++#define __NR_mwmon_kernel_sleep    258
++__SYSCALL(__NR_mwmon_kernel_sleep, sys_mwmon_kernel_sleep)
++#define __NR_mwmon_kernel_notify   259
++__SYSCALL(__NR_mwmon_kernel_notify, sys_mwmon_kernel_notify)
++#define __NR_mwmon_kernel_finalize 260
++__SYSCALL(__NR_mwmon_kernel_finalize, sys_mwmon_kernel_finalize)
++#define __NR_mwmon_user_sleep  261
++__SYSCALL(__NR_mwmon_user_sleep, sys_mwmon_user_sleep)
++#define __NR_mwmon_mmap_sleep  262     
++__SYSCALL(__NR_mwmon_mmap_sleep, sys_mwmon_mmap_sleep)
++#define __NR_mwmon_mmap_spin_while_greater     263
++__SYSCALL(__NR_mwmon_mmap_spin_while_greater, sys_mwmon_mmap_spin_while_greater)
+ 
+-#define __NR_syscall_max __NR_inotify_rm_watch
++#define __NR_syscall_max __NR_mwmon_mmap_spin_while_greater
+ #ifndef __NO_STUBS
+ 
+ /* user-visible error numbers are in the range -1 - -4095 */
+diff -ruN linux-2.6.13.1-perfctr/include/linux/cpu_controls.h linux-2.6.13.1-perfctr-anastop/include/linux/cpu_controls.h
+--- linux-2.6.13.1-perfctr/include/linux/cpu_controls.h 1970-01-01 02:00:00.000000000 +0200
++++ linux-2.6.13.1-perfctr-anastop/include/linux/cpu_controls.h 2007-01-30 05:08:13.000000000 +0200
+@@ -0,0 +1,17 @@
++#ifndef __CPU_CONTROLS_H
++#define __CPU_CONTROLS_H
++
++//extern unsigned long *mwmon_mmap_area;
++extern char *mwmon_mmap_area;
++extern long int *mwmon_lint_var_addr;
++
++
++#define MWMON_MONITORED_MEM_BYTES  64  //apo thn CPUID (input: eax=0x05)
++#define MWMON_ALIGN_BOUNDARY       64
++#define MWMON_ORIGINAL_VAL     'a'
++#define MWMON_NOTIFIED_VAL 'b'
++
++#define MWMON_LINT_VAR_OFFSET  128
++
++#endif
++
+diff -ruN linux-2.6.13.1-perfctr/kernel/Makefile linux-2.6.13.1-perfctr-anastop/kernel/Makefile
+--- linux-2.6.13.1-perfctr/kernel/Makefile  2007-01-30 05:03:33.000000000 +0200
++++ linux-2.6.13.1-perfctr-anastop/kernel/Makefile  2007-01-30 05:08:26.000000000 +0200
+@@ -7,7 +7,7 @@
+        sysctl.o capability.o ptrace.o timer.o user.o \
+        signal.o sys.o kmod.o workqueue.o pid.o \
+        rcupdate.o intermodule.o extable.o params.o posix-timers.o \
+-       kthread.o wait.o kfifo.o sys_ni.o posix-cpu-timers.o
++       kthread.o wait.o kfifo.o sys_ni.o posix-cpu-timers.o cpu_controls.o
+ 
+ obj-$(CONFIG_FUTEX) += futex.o
+ obj-$(CONFIG_GENERIC_ISA_DMA) += dma.o
+diff -ruN linux-2.6.13.1-perfctr/kernel/cpu_controls.c linux-2.6.13.1-perfctr-anastop/kernel/cpu_controls.c
+--- linux-2.6.13.1-perfctr/kernel/cpu_controls.c    1970-01-01 02:00:00.000000000 +0200
++++ linux-2.6.13.1-perfctr-anastop/kernel/cpu_controls.c    2007-01-30 05:08:26.000000000 +0200
+@@ -0,0 +1,338 @@
++#include <linux/cpu_controls.h>
++#include <linux/init.h>
++#include <linux/kernel.h>  /* printk() */
++#include <linux/module.h>
++
++/*unsigned long *mwmon_mmap_area;*/
++/*
++ * Pointer to memory allocated by device driver. 
++ * This memory is mapped to userspace.
++ */ 
++char *mwmon_mmap_area;
++EXPORT_SYMBOL_GPL(mwmon_mmap_area);
++
++asmlinkage long sys_cpu_halt(void)
++{
++   //int i;
++
++   __asm__ __volatile__("sti; hlt"::);
++
++   //printk(KERN_ALERT "Halt! ");
++   
++   //for(i=0; i<10; i++)
++   //  printk(KERN_ALERT "%c", mwmon_mmap_area[i]);
++   //printk(KERN_ALERT "\n");
++
++   return 0;
++}
++
++/*
++ *
++ * MWAIT-MONITOR stuff
++ *
++ */
++
++#define MWMON_MONITORED_MEM_BYTES  64  //apo thn CPUID (input: eax=0x05)
++#define MWMON_ALIGN_BOUNDARY       64
++#define MWMON_ORIGINAL_VAL     'a'
++#define MWMON_NOTIFIED_VAL 'b'
++
++static inline void monitor(const void *eax, unsigned long ecx,
++                       unsigned long edx)
++{
++   /* "monitor %eax,%ecx,%edx;" */
++   asm volatile(
++           ".byte 0x0f,0x01,0xc8;"
++           : 
++           :"a" (eax), "c" (ecx), "d"(edx));
++}
++
++static inline void mwait(unsigned long eax, unsigned long ecx)
++{
++   /* "mwait %eax,%ecx;" */
++   asm volatile(
++           ".byte 0x0f,0x01,0xc9;"
++           : 
++           :"a" (eax), "c" (ecx));
++}
++
++
++/*
++ * kernelspace access for monitor (while in kernelspace), 
++ * userspace access for notification (while in userspace)
++ */ 
++asmlinkage long sys_mwmon_mmap_sleep(void)
++{
++   //printk(KERN_ALERT "[mwmon_mmap_sleep]: Going to monitor memory location: %p)\n", mwmon_mmap_area);
++   
++   do {
++       local_irq_disable(); 
++       monitor(mwmon_mmap_area,0,0); 
++       local_irq_enable();   
++
++       if(*mwmon_mmap_area == MWMON_NOTIFIED_VAL)
++           break;
++       
++       /*__asm__ __volatile__("pause":::"memory");*/
++       
++       mwait(0,0); 
++   } while (*mwmon_mmap_area != MWMON_NOTIFIED_VAL);
++
++   //printk(KERN_ALERT "[mwmon_mmap_sleep]: Got out of spin loop... \n");
++
++   *mwmon_mmap_area = MWMON_ORIGINAL_VAL;
++
++   return 0;
++}
++
++
++
++
++/*
++ * userspace access for monitor (while in kernelspace), 
++ * userspace access for notification (while in userspace)
++ */ 
++
++//Initialization, notification and destruction: from userspace
++
++/*
++ * mwmon_user_memory has to be aligned in user-space at MWMON_ALIGN_BOUNDARY boundary
++ */ 
++asmlinkage long sys_mwmon_user_sleep(char* mwmon_user_memory)
++{
++   //printk(KERN_ALERT "[mwmon_user_sleep]: Going to monitor memory location: %p)\n", mwmon_user_memory);
++   
++   do {
++       local_irq_disable(); 
++       monitor((char __user *)mwmon_user_memory,0,0); 
++       local_irq_enable();   
++       
++       if(*(char __user *)mwmon_user_memory == MWMON_NOTIFIED_VAL)
++           break;
++       /*__asm__ __volatile__("pause":::"memory");*/
++       
++       mwait(0,0); 
++   } while (*(char __user *)mwmon_user_memory != MWMON_NOTIFIED_VAL);
++
++   //printk(KERN_ALERT "[mwmon_user_sleep]: Got out of spin loop... \n");
++
++   *(char __user *)mwmon_user_memory = MWMON_ORIGINAL_VAL;
++
++   return 0;
++}
++
++
++
++
++
++/*
++ * kernelspace access for monitor (while in kernelspace), 
++ * kernelspace access for notification (while in userspace)
++ */ 
++static char *__mwmon_kernel_memory;
++
++static void *my_kmalloc_align(int alignment, int size, int flags)
++{
++   void *p;
++
++   if (!(p = kmalloc(size + alignment - 1, flags))) {
++       //printk(KERN_ALERT "kmalloc: Could not allocate kernel memory\n");
++       return (void *) 0;
++   }
++   //Perform the actual alignment: 'alignment' must be a power of 2
++   p = (void *) (((unsigned long) p + alignment - 1) & ~(alignment - 1));
++
++   return p;
++
++}
++
++asmlinkage long sys_mwmon_kernel_init(void)
++{
++   int retval;
++
++   __mwmon_kernel_memory = my_kmalloc_align(MWMON_ALIGN_BOUNDARY, MWMON_MONITORED_MEM_BYTES * sizeof(char), GFP_KERNEL);
++   if (!__mwmon_kernel_memory) {
++       retval = -ENOMEM;
++       return retval;
++   }
++   memset(__mwmon_kernel_memory, 'a', MWMON_MONITORED_MEM_BYTES * sizeof(char));
++   //printk(KERN_ALERT "[mwmon_kernel_init]: Init OK (starting addr: %p)\n", &__mwmon_kernel_memory[0]);
++   //printk(KERN_ALERT "[mwmon_kenrel_init]: Initialized monitored memory location to %c\n", __mwmon_kernel_memory[0]);
++   
++   return 0;
++}
++
++#if 0
++asmlinkage long sys_mwmon_kernel_sleep(void)
++{
++   //printk(KERN_ALERT "[mwmon_kernel_sleep]: Going to monitor memory location: %p)\n", &mwmon_memory[0]);
++   /*local_irq_enable();   */
++   if (__mwmon_kernel_memory[0] != MWMON_NOTIFIED_VAL) {
++       do {
++           local_irq_disable(); 
++           monitor((void*)&__mwmon_kernel_memory[0],0,0); 
++           local_irq_enable();   
++           
++           /*if (__mwmon_kernel_memory[0] == MWMON_NOTIFIED_VAL)*/
++               /*break;*/
++
++           /*__asm__ __volatile__("pause":::"memory");*/
++           
++           /*printk(KERN_ALERT "[mwmon_kernel_sleep]: ...in busy loop: %c\n", __mwmon_kernel_memory[0]);*/
++
++           mwait(0,0); 
++       } while (__mwmon_kernel_memory[0] != MWMON_NOTIFIED_VAL);
++
++       printk(KERN_ALERT "[mwmon_kernel_sleep]: Got out of spin-loop\n");
++   } else
++       printk(KERN_ALERT "[mwmon_kernel_sleep]: Already notified, did not get into spin loop!\n");
++
++   __mwmon_kernel_memory[0] = MWMON_ORIGINAL_VAL;
++
++   return 0;
++}
++#endif
++
++
++asmlinkage long sys_mwmon_kernel_sleep(void)
++{
++   //printk(KERN_ALERT "[mwmon_kernel_sleep]: Going to monitor memory location: %p)\n", &__mwmon_kernel_memory[0]);
++   /*local_irq_enable();   */
++   do {
++       local_irq_disable(); 
++       monitor((void*)&__mwmon_kernel_memory[0],0,0); 
++       local_irq_enable();   
++       
++       if (__mwmon_kernel_memory[0] == MWMON_NOTIFIED_VAL)
++           break;
++
++       /*__asm__ __volatile__("pause":::"memory");*/
++       
++       /*printk(KERN_ALERT "[mwmon_kernel_sleep]: ...in busy loop: %c\n", __mwmon_kernel_memory[0]);*/
++
++       mwait(0,0); 
++   } while (__mwmon_kernel_memory[0] != MWMON_NOTIFIED_VAL);
++
++   //printk(KERN_ALERT "[mwmon_kernel_sleep]: Got out of spin-loop\n");
++
++   __mwmon_kernel_memory[0] = MWMON_ORIGINAL_VAL;
++
++   return 0;
++}
++
++asmlinkage long sys_mwmon_kernel_notify(void)
++{
++   //printk(KERN_ALERT "[mwmon_kernel_notify]: Updating memory location %p)\n", &__mwmon_kernel_memory[0]);
++   __mwmon_kernel_memory[0] = MWMON_NOTIFIED_VAL;
++   //printk(KERN_ALERT "[mwmon_kernel_notify]: Updated monitored memory location to %c\n", __mwmon_kernel_memory[0]);
++
++   return 0;
++}
++
++asmlinkage long sys_mwmon_kernel_finalize(void)
++{
++   kfree(__mwmon_kernel_memory);
++   //printk(KERN_ALERT "[mwmon_kernel_finalize]: Freed monitored memory location!\n");
++   
++   return 0;
++}
++
++
++
++/*
++ * other synch. mechanisms using MWAIT-MONITOR
++ *
++ */
++
++//Offset (from the beginning of shared page) at which an 'long int' 
++//variable must be mapped (in userspace and kernelspace), in order to share it
++//in kernelspace and userspace. 
++//Since we have already implemented the mechanism for mapping a whole page in
++//kernel virtual address space to userspace, it would be 'overkill' to repeat a 
++//separate -yet similar- procedure for other variables we would like to share 
++//between kernel and userspace for other purposes than mwait/monitor functionality.
++//So, we must take care not to place such variables in locations within the
++//shared page, the update of which would trigger false wake-ups.
++//128 bytes from the beginning of the shared memory area (which designates the
++//beginning of the memory area to monitor, as well) is a safe distance to prevent
++//such false wake-ups.
++#define MWMON_LINT_VAR_OFFSET  128
++
++//We define and export the variable address itself (although just the above offset 
++//from the beginning of the shared page would suffice) so that we don't have to compute 
++//the address every time we execute the system call. Instead, we can initialize 
++//the address only once [ mwmon_lint_var_addr = (long int*)(mwmon_mmap_area + OFFSET); ]
++//, at module initialization phase. 
++
++long int *mwmon_lint_var_addr;
++EXPORT_SYMBOL_GPL(mwmon_lint_var_addr);
++
++
++#if 0
++#define SPIN_ON_CONDITION(spin_var, condition_val) { \
++   __asm__ __volatile__ ("\n"  \
++           "cmpl %1, %0\n"     \
++           "je 2f\n"           \
++           "1:\tpause\n\t"     \
++           "cmpl %1, %0\n\t"   \
++           "jne 1b\n"          \
++           "2:\t\n"            \
++           :                   \
++           :"m"(spin_var), "ir"(condition_val)     \
++           );  \
++}
++
++//if ( spin_var >= condition_val ) { exit; }  else { spin; }
++#define SPIN_ON_CONDITION_INEQ(spin_var, condition_val )   { \
++   __asm__ __volatile__ ("\n"  \
++           "cmpl %1, %0\n"     \
++           "jge 2f\n"          \
++           "1:\tpause\n\t"     \
++           "cmpl %1, %0\n\t"   \
++           "jle 1b\n"          \
++           "2:\t\n"            \
++           : :"m"(spin_var), "ib"(condition_val) ); }
++#endif
++
++/*
++ * if ( spin_var >= condition_val ) { exit; }  else { spin; }
++ *
++ * spin while local condition is greater than a global spin variable
++ */ 
++asmlinkage long sys_mwmon_mmap_spin_while_greater(long int local_condition)
++{
++
++   /*
++    * If the preceding MONITOR instruction did not successfully arm an 
++    * address range or if the MONITOR instruction has not been executed 
++    * prior to executing MWAIT, then the processor will not enter the 
++    * implementation-dependent-optimized state.
++    *
++    * In this scenario we actually do not monitor the specified address range
++    * for writes. We expect that mwait will break due to interrupts, since
++    * we do not assume that "notifier" thread will wake the "sleeper" up by 
++    * writing to the monitored address.
++    *
++    * In case we would like the "notifier" to wake the "sleeper" up upon 
++    * condition satisfaction, we should assign condition check to "notifier", 
++    * or we should find a more clever way for simultaneous condition check 
++    * and notification.
++    */ 
++
++   while ( (*mwmon_lint_var_addr) < local_condition ) {
++       local_irq_disable(); 
++       monitor(mwmon_mmap_area,0,0); 
++       local_irq_enable();  
++       
++       if(*mwmon_mmap_area == MWMON_NOTIFIED_VAL)
++           break;
++
++       mwait(0,0);
++   }
++
++   *mwmon_mmap_area = MWMON_ORIGINAL_VAL;
++
++   return 0;
++}
++
++

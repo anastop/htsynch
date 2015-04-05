@@ -1,0 +1,176 @@
+mwmon primitives:
+SYNC_PERIOD= 500
+Work_time: 3.650460     Wakeup_tics: 26244.000000    Call_tics: 5152.000000
+Work_time: 3.382622     Wakeup_tics: 25761.000000    Call_tics: 5600.000000
+Work_time: 3.570581     Wakeup_tics: 26104.000000    Call_tics: 5348.000000
+Work_time: 3.764996     Wakeup_tics: 24886.000000    Call_tics: 5187.000000
+Work_time: 3.804164     Wakeup_tics: 29030.000000    Call_tics: 4900.000000
+Work_time: 3.591322     Wakeup_tics: 24165.000000    Call_tics: 4487.000000
+Work_time: 3.625016     Wakeup_tics: 24487.000000    Call_tics: 4781.000000
+Work_time: 3.343031     Wakeup_tics: 24536.000000    Call_tics: 4368.000000
+Work_time: 3.223014     Wakeup_tics: 28050.000000    Call_tics: 5117.000000
+Work_time: 3.758771     Wakeup_tics: 28036.000000    Call_tics: 5474.000000
+Work_time: 3.485855     Wakeup_tics: 27294.000000    Call_tics: 6251.000000
+Work_time: 3.263031     Wakeup_tics: 26349.000000    Call_tics: 6006.000000
+Work_time: 3.068870     Wakeup_tics: 22807.000000    Call_tics: 5516.000000
+Work_time: 3.375664     Wakeup_tics: 24620.000000    Call_tics: 6307.000000
+Work_time: 3.422704     Wakeup_tics: 27966.000000    Call_tics: 6286.000000
+Work_time: 3.047603     Wakeup_tics: 24452.000000    Call_tics: 6594.000000
+Work_time: 3.765354     Wakeup_tics: 24704.000000    Call_tics: 5719.000000
+Work_time: 3.755714     Wakeup_tics: 25726.000000    Call_tics: 5243.000000
+Work_time: 3.502293     Wakeup_tics: 25691.000000    Call_tics: 5852.000000
+Work_time: 3.072331     Wakeup_tics: 24242.000000    Call_tics: 5187.000000
+Work_time: 2.822443     Wakeup_tics: 27098.000000    Call_tics: 5859.000000
+Work_time: 3.644387     Wakeup_tics: 21883.000000    Call_tics: 4333.000000
+Work_time: 3.448050     Wakeup_tics: 20231.000000    Call_tics: 5285.000000
+Work_time: 4.028894     Wakeup_tics: 26734.000000    Call_tics: 4928.000000
+Work_time: 3.548754     Wakeup_tics: 25208.000000    Call_tics: 6020.000000
+Work_time: 3.384806     Wakeup_tics: 23717.000000    Call_tics: 5831.000000
+Work_time: 3.438486     Wakeup_tics: 28400.000000    Call_tics: 5446.000000
+Work_time: 3.165216     Wakeup_tics: 27245.000000    Call_tics: 4809.000000
+Work_time: 3.077976     Wakeup_tics: 26391.000000    Call_tics: 5691.000000
+Work_time: 3.266344     Wakeup_tics: 28897.000000    Call_tics: 5824.000000
+Work_time: 3.936511     Wakeup_tics: 21624.000000    Call_tics: 4893.000000
+Work_time: 4.056907     Wakeup_tics: 27322.000000    Call_tics: 5782.000000
+Work_time: 3.365615     Wakeup_tics: 20469.000000    Call_tics: 5747.000000
+Work_time: 3.613843     Wakeup_tics: 21547.000000    Call_tics: 4830.000000
+Work_time: 3.243875     Wakeup_tics: 28575.000000    Call_tics: 5390.000000
+Work_time: 3.780764     Wakeup_tics: 24781.000000    Call_tics: 5481.000000
+Work_time: 4.082687     Wakeup_tics: 22877.000000    Call_tics: 5628.000000
+Work_time: 3.127010     Wakeup_tics: 22758.000000    Call_tics: 5831.000000
+Work_time: 3.502218     Wakeup_tics: 24256.000000    Call_tics: 5656.000000
+Work_time: 3.278980     Wakeup_tics: 30094.000000    Call_tics: 6167.000000
+
+
+pthread primitives:
+SYNC_PERIOD= 500
+Work_time: 4.046177     Wakeup_tics: 118763.000000    Call_tics: 69489.000000
+Work_time: 3.675092     Wakeup_tics: 117951.000000    Call_tics: 73479.000000
+Work_time: 3.644859     Wakeup_tics: 111966.000000    Call_tics: 67193.000000
+Work_time: 3.670931     Wakeup_tics: 118651.000000    Call_tics: 76895.000000
+Work_time: 3.544250     Wakeup_tics: 111938.000000    Call_tics: 69013.000000
+Work_time: 3.530107     Wakeup_tics: 115228.000000    Call_tics: 67109.000000
+Work_time: 3.819936     Wakeup_tics: 117608.000000    Call_tics: 67550.000000
+Work_time: 3.686051     Wakeup_tics: 108991.000000    Call_tics: 63420.000000
+Work_time: 3.529584     Wakeup_tics: 117237.000000    Call_tics: 71043.000000
+Work_time: 3.483609     Wakeup_tics: 106849.000000    Call_tics: 67151.000000
+Work_time: 3.857270     Wakeup_tics: 111455.000000    Call_tics: 69111.000000
+Work_time: 3.460036     Wakeup_tics: 116502.000000    Call_tics: 65674.000000
+Work_time: 3.305328     Wakeup_tics: 114213.000000    Call_tics: 69622.000000
+Work_time: 3.685874     Wakeup_tics: 119897.000000    Call_tics: 76720.000000
+Work_time: 3.785012     Wakeup_tics: 124671.000000    Call_tics: 68579.000000
+Work_time: 3.563539     Wakeup_tics: 116082.000000    Call_tics: 69594.000000
+Work_time: 3.728331     Wakeup_tics: 112022.000000    Call_tics: 71358.000000
+Work_time: 3.680433     Wakeup_tics: 114045.000000    Call_tics: 67837.000000
+Work_time: 3.666838     Wakeup_tics: 116964.000000    Call_tics: 70707.000000
+Work_time: 3.261147     Wakeup_tics: 128108.000000    Call_tics: 74872.000000
+Work_time: 3.678043     Wakeup_tics: 127219.000000    Call_tics: 76293.000000
+Work_time: 3.512686     Wakeup_tics: 118021.000000    Call_tics: 69342.000000
+Work_time: 3.998023     Wakeup_tics: 114213.000000    Call_tics: 70364.000000
+Work_time: 3.379356     Wakeup_tics: 118938.000000    Call_tics: 70000.000000
+Work_time: 3.379931     Wakeup_tics: 104161.000000    Call_tics: 70420.000000
+Work_time: 3.103925     Wakeup_tics: 117895.000000    Call_tics: 73241.000000
+Work_time: 3.374303     Wakeup_tics: 129963.000000    Call_tics: 74459.000000
+Work_time: 3.617124     Wakeup_tics: 127289.000000    Call_tics: 75285.000000
+Work_time: 3.354702     Wakeup_tics: 120254.000000    Call_tics: 71407.000000
+Work_time: 3.534679     Wakeup_tics: 120982.000000    Call_tics: 72478.000000
+Work_time: 3.261049     Wakeup_tics: 115816.000000    Call_tics: 72555.000000
+Work_time: 3.237856     Wakeup_tics: 115298.000000    Call_tics: 69118.000000
+Work_time: 3.666507     Wakeup_tics: 108690.000000    Call_tics: 65338.000000
+Work_time: 3.851987     Wakeup_tics: 115802.000000    Call_tics: 68558.000000
+Work_time: 4.144890     Wakeup_tics: 121892.000000    Call_tics: 74956.000000
+Work_time: 3.902037     Wakeup_tics: 115382.000000    Call_tics: 66913.000000
+Work_time: 3.162198     Wakeup_tics: 121780.000000    Call_tics: 70945.000000
+Work_time: 3.700401     Wakeup_tics: 120009.000000    Call_tics: 64813.000000
+Work_time: 3.573275     Wakeup_tics: 119582.000000    Call_tics: 63721.000000
+Work_time: 3.618987     Wakeup_tics: 107269.000000    Call_tics: 65058.000000
+
+
+spinpause primitives:
+SYNC_PERIOD= 500
+Work_time: 3.705088     Wakeup_tics: 547.000000    Call_tics: 847.000000
+Work_time: 4.631735     Wakeup_tics: 442.000000    Call_tics: 882.000000
+Work_time: 4.120971     Wakeup_tics: 512.000000    Call_tics: 854.000000
+Work_time: 4.098307     Wakeup_tics: 568.000000    Call_tics: 882.000000
+Work_time: 4.379817     Wakeup_tics: 491.000000    Call_tics: 875.000000
+Work_time: 3.805602     Wakeup_tics: 820.000000    Call_tics: 875.000000
+Work_time: 4.467857     Wakeup_tics: 862.000000    Call_tics: 203.000000
+Work_time: 4.059727     Wakeup_tics: 1212.000000    Call_tics: 203.000000
+Work_time: 4.586257     Wakeup_tics: 561.000000    Call_tics: 868.000000
+Work_time: 4.081086     Wakeup_tics: 470.000000    Call_tics: 875.000000
+Work_time: 4.148178     Wakeup_tics: 568.000000    Call_tics: 840.000000
+Work_time: 4.250721     Wakeup_tics: 484.000000    Call_tics: 861.000000
+Work_time: 4.598819     Wakeup_tics: 561.000000    Call_tics: 868.000000
+Work_time: 3.968422     Wakeup_tics: 953.000000    Call_tics: 203.000000
+Work_time: 3.938438     Wakeup_tics: 498.000000    Call_tics: 868.000000
+Work_time: 3.910921     Wakeup_tics: 974.000000    Call_tics: 203.000000
+Work_time: 4.750422     Wakeup_tics: 435.000000    Call_tics: 868.000000
+Work_time: 4.346379     Wakeup_tics: 554.000000    Call_tics: 854.000000
+Work_time: 4.348089     Wakeup_tics: 526.000000    Call_tics: 868.000000
+Work_time: 3.551421     Wakeup_tics: 554.000000    Call_tics: 868.000000
+Work_time: 4.101361     Wakeup_tics: 512.000000    Call_tics: 875.000000
+Work_time: 4.284941     Wakeup_tics: 540.000000    Call_tics: 847.000000
+Work_time: 3.900743     Wakeup_tics: 512.000000    Call_tics: 889.000000
+Work_time: 4.639259     Wakeup_tics: 484.000000    Call_tics: 854.000000
+Work_time: 4.120379     Wakeup_tics: 484.000000    Call_tics: 889.000000
+Work_time: 4.477910     Wakeup_tics: 435.000000    Call_tics: 868.000000
+Work_time: 4.068483     Wakeup_tics: 512.000000    Call_tics: 861.000000
+Work_time: 3.917165     Wakeup_tics: 456.000000    Call_tics: 882.000000
+Work_time: 4.776344     Wakeup_tics: 1198.000000    Call_tics: 210.000000
+Work_time: 4.546941     Wakeup_tics: 491.000000    Call_tics: 868.000000
+Work_time: 4.842600     Wakeup_tics: 463.000000    Call_tics: 952.000000
+Work_time: 4.241267     Wakeup_tics: 526.000000    Call_tics: 875.000000
+Work_time: 4.038590     Wakeup_tics: 547.000000    Call_tics: 861.000000
+Work_time: 4.380551     Wakeup_tics: 526.000000    Call_tics: 847.000000
+Work_time: 4.121178     Wakeup_tics: 463.000000    Call_tics: 875.000000
+Work_time: 4.143816     Wakeup_tics: 568.000000    Call_tics: 868.000000
+Work_time: 4.253502     Wakeup_tics: 575.000000    Call_tics: 875.000000
+Work_time: 4.410142     Wakeup_tics: 498.000000    Call_tics: 854.000000
+Work_time: 4.369914     Wakeup_tics: 491.000000    Call_tics: 854.000000
+Work_time: 4.402728     Wakeup_tics: 491.000000    Call_tics: 861.000000
+
+
+spinhalt primitives:
+SYNC_PERIOD= 500
+Work_time: 3.688751     Wakeup_tics: 39509.000000    Call_tics: 30709.000000
+Work_time: 3.900039     Wakeup_tics: 37143.000000    Call_tics: 25459.000000
+Work_time: 4.029811     Wakeup_tics: 40412.000000    Call_tics: 30702.000000
+Work_time: 3.640491     Wakeup_tics: 36016.000000    Call_tics: 24290.000000
+Work_time: 2.902781     Wakeup_tics: 36828.000000    Call_tics: 25893.000000
+Work_time: 3.703813     Wakeup_tics: 40783.000000    Call_tics: 29162.000000
+Work_time: 3.340593     Wakeup_tics: 30661.000000    Call_tics: 22701.000000
+Work_time: 3.518447     Wakeup_tics: 40405.000000    Call_tics: 29526.000000
+Work_time: 3.665272     Wakeup_tics: 36835.000000    Call_tics: 29008.000000
+Work_time: 3.473607     Wakeup_tics: 39859.000000    Call_tics: 27811.000000
+Work_time: 4.009954     Wakeup_tics: 39299.000000    Call_tics: 30625.000000
+Work_time: 3.929674     Wakeup_tics: 32754.000000    Call_tics: 26033.000000
+Work_time: 3.388484     Wakeup_tics: 40720.000000    Call_tics: 29680.000000
+Work_time: 2.936801     Wakeup_tics: 35099.000000    Call_tics: 27195.000000
+Work_time: 3.810181     Wakeup_tics: 40412.000000    Call_tics: 30051.000000
+Work_time: 3.680701     Wakeup_tics: 40209.000000    Call_tics: 31185.000000
+Work_time: 3.553141     Wakeup_tics: 43436.000000    Call_tics: 31920.000000
+Work_time: 3.183353     Wakeup_tics: 37829.000000    Call_tics: 28616.000000
+Work_time: 3.909142     Wakeup_tics: 32775.000000    Call_tics: 25186.000000
+Work_time: 3.952648     Wakeup_tics: 31991.000000    Call_tics: 21868.000000
+Work_time: 3.180217     Wakeup_tics: 41791.000000    Call_tics: 30660.000000
+Work_time: 3.509627     Wakeup_tics: 52186.000000    Call_tics: 44331.000000
+Work_time: 3.191496     Wakeup_tics: 33888.000000    Call_tics: 25074.000000
+Work_time: 3.397102     Wakeup_tics: 35666.000000    Call_tics: 26670.000000
+Work_time: 4.016243     Wakeup_tics: 30976.000000    Call_tics: 24304.000000
+Work_time: 3.952694     Wakeup_tics: 41217.000000    Call_tics: 30366.000000
+Work_time: 3.742650     Wakeup_tics: 34231.000000    Call_tics: 26747.000000
+Work_time: 4.090449     Wakeup_tics: 39271.000000    Call_tics: 29652.000000
+Work_time: 3.656402     Wakeup_tics: 38172.000000    Call_tics: 30268.000000
+Work_time: 3.382281     Wakeup_tics: 36562.000000    Call_tics: 26327.000000
+Work_time: 3.616644     Wakeup_tics: 37500.000000    Call_tics: 24626.000000
+Work_time: 3.915134     Wakeup_tics: 34539.000000    Call_tics: 25340.000000
+Work_time: 3.768497     Wakeup_tics: 32383.000000    Call_tics: 23562.000000
+Work_time: 3.708224     Wakeup_tics: 38298.000000    Call_tics: 23513.000000
+Work_time: 3.201034     Wakeup_tics: 36982.000000    Call_tics: 29022.000000
+Work_time: 3.555501     Wakeup_tics: 37171.000000    Call_tics: 29813.000000
+Work_time: 3.525803     Wakeup_tics: 37892.000000    Call_tics: 25753.000000
+Work_time: 3.783279     Wakeup_tics: 38816.000000    Call_tics: 25970.000000
+Work_time: 3.528363     Wakeup_tics: 33447.000000    Call_tics: 25725.000000
+Work_time: 4.035692     Wakeup_tics: 34861.000000    Call_tics: 27209.000000
+
+

@@ -1,0 +1,34 @@
+.phony: all clean
+
+CC=gcc-4.1
+CFLAGS= -Wall -O2 #-g
+DEFS=-DCPU_XEON -DCPU_BITS=64 -DKERNEL_2_6_24_2 
+OTHER_FLAGS=
+CFLAGS+=$(DEFS) $(OTHER_FLAGS)
+
+LIBDIR=
+LIBS=-lm -lpthread
+
+INCDIR=
+
+HPEDS=%.h
+
+OBJS1=  cpu.o cpu_control_syscalls.o test_primitives.o 
+OBJS2=  cpu.o cpu_control_syscalls.o test_barriers.o mwait_barrier.o
+OBJS3=  cpu.o cpu_control_syscalls.o test_barriers_2packages.o mwait_barrier.o
+
+primitives: $(OBJS1) 
+	$(CC) $(OBJS1) -o primitives -L/$(LIBDIR) $(LIBS) 	
+	
+barriers: $(OBJS2) 
+	$(CC) $(OBJS2) -o barriers -L/$(LIBDIR) $(LIBS) 	
+	
+barriers_2packages: $(OBJS3) 
+	$(CC) $(OBJS3) -o barriers_2packages -L/$(LIBDIR) $(LIBS) 	
+	
+%.o: %.c $(HDEPS)
+	$(CC) $(CFLAGS) -I/$(INCDIR) -c $< -o $@
+
+clean:
+	rm -f *.o primitives barriers barriers_2packages
+
